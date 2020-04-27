@@ -122,8 +122,8 @@ $(LIBPCRE_EXTRACTED)/config.status: $(LIBPCRE_BUILD)/.origin
 
 # Create pcre_chartables.c symlink
 $(LIBPCRE_EXTRACTED)/pcre_chartables.c: $(LIBPCRE_EXTRACTED)/config.status
-	$(call verbose_cmd,LINK,libpcre: $(notdir $@), \
-		cd $(LIBPCRE_EXTRACTED) && ln -s pcre_chartables.c.dist $@)
+	$(call verbose_cmd,HOSTLN,libpcre: $(notdir $@), \
+		cd $(LIBPCRE_EXTRACTED) && ln -fs pcre_chartables.c.dist $@)
 
 LIBPCRE_PREPARED_DEPS = \
 	$(LIBPCRE_EXTRACTED)/config.status \
